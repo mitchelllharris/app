@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.note('/submit', (req, res) => {
+app.post('/submit', (req, res) => {
     const { noteTitle, noteDescription, noteBody, noteAuthor, noteReadTime } = req.body;
 
     const newNote = {
