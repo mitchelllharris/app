@@ -7,8 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
-// Array to store posts (simulate database)
-let posts = [];
+// Array to store notes (simulate database)
+let notes = [];
 
 app.use(express.static('public'));
 app.use('/css', express.static(__dirname + '/public/css'));
@@ -17,27 +17,27 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     res.render(__dirname + '/views/index.ejs', {
-        posts: posts // Pass posts array to template
+        notes: notes // Pass notes array to template
     });
 });
 
-app.post('/submit', (req, res) => {
-    const { postTitle, postDescription, postBody, postAuthor, postReadTime } = req.body;
+app.note('/submit', (req, res) => {
+    const { noteTitle, noteDescription, noteBody, noteAuthor, noteReadTime } = req.body;
 
-    const newPost = {
-        title: postTitle,
-        description: postDescription,
-        body: postBody,
-        author: postAuthor,
-        readTime: postReadTime,
+    const newNote = {
+        title: noteTitle,
+        description: noteDescription,
+        body: noteBody,
+        author: noteAuthor,
+        readTime: noteReadTime,
         createdAt: new Date().toLocaleString() // Simulate created timestamp
     };
 
-    // Add the new post to the beginning of the posts array
-    posts.unshift(newPost);
+    // Add the new note to the beginning of the notes array
+    notes.unshift(newNote);
 
     // Redirect to the home page after successful submission
-    res.redirect('/');
+    res.redirect('/s');
 });
 
 app.listen(port, () => {

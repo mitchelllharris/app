@@ -10,16 +10,16 @@
         <div class="row">
             <div class="col">
                 <div class="list-group">
-                    <% posts.forEach(post => { %>
+                    <% notes.forEach(note => { %>
                         <a href="#" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
-                                <h6><%= post.title %></h6>
-                                <small><%= post.createdAt %></small>
+                                <h6><%= note.title %></h6>
+                                <small><%= note.createdAt %></small>
                             </div>
-                            <p class="mb-2"><%= post.description %></p>
+                            <p class="mb-2"><%= note.description %></p>
                             <div class="d-flex">
-                                <small class="pe-2"><%= post.author %></small>
-                                <small><%= post.readTime %></small>
+                                <small class="pe-2"><%= note.author %></small>
+                                <small><%= note.readTime %></small>
                             </div>
                         </a>
                     <% }); %>
