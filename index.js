@@ -22,14 +22,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/submit', (req, res) => {
-    const { noteTitle, noteDescription, noteBody, noteAuthor, noteReadTime } = req.body;
+    const { noteTitle, noteDescription, noteBody, noteAuthor } = req.body;
 
     const newNote = {
         title: noteTitle,
         description: noteDescription,
         body: noteBody,
         author: noteAuthor,
-        readTime: noteReadTime,
         createdAt: new Date().toLocaleString() // Simulate created timestamp
     };
 
