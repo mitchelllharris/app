@@ -36,7 +36,7 @@ app.post('/submit', (req, res) => {
     notes.unshift(newNote);
 
     // Redirect to the home page after successful submission
-    res.redirect('/s');
+    res.redirect('/');
 });
 
 app.listen(port, () => {
