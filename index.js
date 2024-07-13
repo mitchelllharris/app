@@ -7,35 +7,44 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
+app.use(express.static('public'));
+app.use('/css', express.static(__dirname + '/public/css'));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Array to store notes (simulate database)
 let notes = [];
 
-app.use(express.static('public'));
-app.use('/css', express.static(__dirname + '/public/css'));
-
-app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render(__dirname + '/views/index.ejs', {
-        notes: notes // Pass notes array to template
+    res.render(__dirname + '/views/index.ejs', { 
+        notes: notes, 
+        errorMessage: '' 
     });
 });
 
 app.post('/submit', (req, res) => {
-    const { noteTitle, noteDescription, noteBody, noteAuthor } = req.body;
+    const noteTitle = req.body['noteTitle'];
+    const noteDescription = req.body['noteDescription'];
+    const noteBody = req.body['noteBody'];
+    const noteCreated = new Date().toLocaleString();
+
+    if (!noteTitle) {
+        return res.render(__dirname + '/views/index.ejs', {
+            notes: notes,
+            errorMessage: 'Please fill out all the required fields.',
+        });
+    }
 
     const newNote = {
         title: noteTitle,
         description: noteDescription,
         body: noteBody,
-        author: noteAuthor,
-        createdAt: new Date().toLocaleString() // Simulate created timestamp
+        createdAt: noteCreated
     };
 
-    // Add the new note to the beginning of the notes array
-    notes.unshift(newNote);
+    notes.push(newNote);
 
-    // Redirect to the home page after successful submission
     res.redirect('/');
 });
 
