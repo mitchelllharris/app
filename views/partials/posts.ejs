@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="list-group">
+                    <% posts.forEach(post => { %>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6><%= post.title %></h6>
+                                <small><%= post.createdAt %></small>
+                            </div>
+                            <p class="mb-2"><%= post.description %></p>
+                            <div class="d-flex">
+                                <small class="pe-2"><%= post.author %></small>
+                                <small><%= post.readTime %></small>
+                            </div>
+                        </a>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

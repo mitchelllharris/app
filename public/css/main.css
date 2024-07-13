@@ -1,0 +1,11 @@
+/* Bootstrap Styling */
+.btn.btn-link {
+    padding: 0;
+}
+
+.user-profile-picture {
+    background-color: lightgrey;
+    border-radius: 100%;
+    height: 3rem;
+    width: 3rem;
+}

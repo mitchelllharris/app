@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a new post</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form action="/submit" method="post">
+                    <div class="mb-3">
+                        <label for="postTitle" class="form-label">Post Title</label>
+                        <input id="postTitle" class="form-control" type="text" name="postTitle">
+                    </div>
+                    <div class="mb-3">
+                        <label for="postDescription" class="form-label">Post Description</label>
+                        <input id="postDescription" class="form-control" name="postDescription" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <label for="postBody" class="form-label">Post Body</label>
+                        <textarea id="postBody" class="form-control" name="postBody"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postAuthor" class="form-label">Post Author</label>
+                        <textarea id="postAuthor" class="form-control" name="postAuthor"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postReadTime" class="form-label">Read Time</label>
+                        <textarea id="postReadTime" class="form-control" name="postReadTime"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
